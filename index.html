@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detector</title>
+    <style>
+        body{
+            font-family:'Times New Roman', Times, serif;
+            background-color: #1a202c;
+            margin: 0;
+            padding: 0;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1{
+            text-align:start;
+            color: #d5d5d5;
+            font-family:'Orbitron',sans-serif;
+        }
+
+        form{
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        label{
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="text"]{
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+            
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        button{
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #45a049;
+        }
+
+        h2{
+            color: #d5d5d5;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1 class="text-5xl font-bold mb-4">Phishing URL Detection</h1>
+    <form action="/predict" method="post">
+        <!--<img src="https://storage.googleapis.com/a1aa/image/2zjEATVTZvvDwGEG3YsoksYGfpqPfzQhbvLPDNAzU2A.jpg" alt="A dark, ominous background with binary code and a shadowy figure representing cyber crime" class="absolute inset-0 w-full h-full object-cover opacity-50" width="1920" height="1080"/>-->
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Check</button>
+    </form>
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
